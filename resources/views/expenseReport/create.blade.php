@@ -14,6 +14,7 @@
     <div class="col">
         <form action="/expense_reports" method="POST">
             @csrf
+            @method('put')
             <div class="form-group">
                 <label for="title">title</label>
                 <input type="text" class="form-control" id="title" name="title" placeholder="Type a title">
