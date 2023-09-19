@@ -44,9 +44,12 @@ class ExpenseReportController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(ExpenseReport $expenseReport )
     {
-        //
+        // $report = ExpenseReport::findOrFail( $id );
+        return view( 'expenseReport.show', [
+            'report' => $expenseReport,
+        ] );
     }
 
     /**
@@ -69,7 +72,7 @@ class ExpenseReportController extends Controller
         $validData = $request->validate( [
             'title' => 'required|min:3'
         ] );
-        
+
         $report = ExpenseReport::findOrFail( $id );
         $report->title = $request->get('title');
         $report->save();
