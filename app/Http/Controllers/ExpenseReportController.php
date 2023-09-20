@@ -101,4 +101,23 @@ class ExpenseReportController extends Controller
             'report' => $report
         ] );
     }
+
+    /**
+     * Show the form mail report.
+     */
+    public function confirmSendMail(string $id)
+    {
+        $report = ExpenseReport::findOrFail( $id );
+        return view( 'expenseReport.confirmSendMail', [
+            'report' => $report
+        ] );
+    }
+
+    /**
+     * Send mail report.
+     */
+    public function sendMail($id) {
+        $report =  ExpenseReport::findOrFail($id);
+        return $report;
+    }
 }
